@@ -1,0 +1,65 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+	
+<%
+
+	String msg = null;
+	String erro = "OK";
+	try {
+		erro = request.getParameter("autentica");
+		if (erro.equals("erro")){
+			msg = "Usuário ou senha inválidos!";
+		}
+	} catch (Exception e) {
+		
+	}
+
+%>
+	
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Afin@Soft - LOGIN</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+	<div class="conteiner">
+
+		<!-- HEADER -->
+		<%@include file="header.jsp"%>
+		<!-- FIM HEADER -->
+
+		<!-- CONTEÚDO -->
+		<div class="conteudo">
+
+			<div class="autenticacao">
+								
+				<div class="formularioLogin">
+					<p class="tituloLogin">Autenticação</p>
+					<p style="color: red; margin-botton:10px;"><%= msg %></p>
+					<form action="autentica.jsp" method="post">
+						<label for="usuario">Nome do usuário:</label>
+						<input type="text" id="usuario" name="txtUsuario">
+						<label for="usuario">Senha</label>
+						<input type="password" id="senha" name="txtSenha"> 
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+				
+			</div>
+		</div>
+		<!-- FIM CONTEÚDO -->
+
+		<!-- RODAPÉ -->
+		<%@include file="footer.jsp"%>
+		<!-- FIM RODAPÉ -->
+
+	</div>
+
+</body>
+</html>
+dy>
+</html>

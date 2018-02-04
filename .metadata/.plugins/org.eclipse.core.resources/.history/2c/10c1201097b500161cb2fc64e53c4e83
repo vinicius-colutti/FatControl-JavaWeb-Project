@@ -1,0 +1,36 @@
+package br.com.fatcontrol.Util;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Data {
+	public static Date formataData(String d) { 
+		if (d == null || d.equals(""))
+			return null;
+        Date date = null;
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            date = (Date)formatter.parse(d);
+        } catch (ParseException e) {            
+        	System.out.println(e);
+        }
+        return date;
+	}
+	
+	public static String formataData(Date d){
+		String data = null;
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");
+		data = formatter.format(d);		
+		
+		return data;
+	}
+	
+
+	
+	
+}
+
+

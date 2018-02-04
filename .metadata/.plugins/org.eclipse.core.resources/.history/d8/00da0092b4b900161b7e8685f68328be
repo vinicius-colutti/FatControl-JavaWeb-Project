@@ -1,0 +1,156 @@
+package br.com.fatcontrol.controle;
+
+import java.io.IOException;
+import java.sql.Date;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import br.com.fatcontrol.DAO.UsuarioDAO;
+import br.com.fatcontrol.Util.Data;
+import br.com.fatcontrol.model.Usuario;
+
+
+@WebServlet("/GravarUsuario")
+public class GravarUsuario extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    
+    public GravarUsuario() {
+        super();
+        
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Usuario u = new Usuario();
+		
+		u.setLogin(request.getParameter("txtLogin"));
+		if (request.getParameter("txtlogin") == null){
+			RequestDispatcher rd =request.getRequestDispatcher("faleconosco.jsp");
+			
+			rd.forward(request, response);
+			
+			
+			
+		}
+		u.setSenha(request.getParameter("txtSenha"));
+		if (request.getParameter("txtSenha") == null){
+			RequestDispatcher rd =request.getRequestDispatcher("faleconosco.jsp");
+			
+			rd.forward(request, response);
+			
+			
+			
+		}
+		u.setNome(request.getParameter("txtNome"));
+		if (request.getParameter("txtNome") == null){
+			RequestDispatcher rd =request.getRequestDispatcher("faleconosco.jsp");
+			
+			rd.forward(request, response);
+			
+			
+			
+		}
+		u.setEmail(request.getParameter("txtEmail"));
+		if (request.getParameter("txtEmail") == null){
+			RequestDispatcher rd =request.getRequestDispatcher("faleconosco.jsp");
+			
+			rd.forward(request, response);
+			
+			
+			
+		}
+		u.setDtNasc(Data.getData(request.getParameter("txtDtNasc")));
+		if (request.getParameter("txtDtNasc") == null){
+			RequestDispatcher rd =request.getRequestDispatcher("faleconosco.jsp");
+			
+			rd.forward(request, response);
+			
+			
+			
+		}
+		u.setSexo(request.getParameter("rdSexo"));
+		if (request.getParameter("rdSexo") == null){
+			RequestDispatcher rd =request.getRequestDispatcher("faleconosco.jsp");
+			
+			rd.forward(request, response);
+			
+			
+			
+		}
+		u.setPeso(Float.parseFloat(request.getParameter("txtPeso")));
+		if (request.getParameter("txtPeso") == null){
+			RequestDispatcher rd =request.getRequestDispatcher("faleconosco.jsp");
+			
+			rd.forward(request, response);
+			
+			
+			
+		}
+		u.setPesoAlvo(Float.parseFloat(request.getParameter("txtPesoAlvo")));
+		if (request.getParameter("txtPesoAlvo") == null){
+			RequestDispatcher rd =request.getRequestDispatcher("faleconosco.jsp");
+			
+			rd.forward(request, response);
+			
+			
+			
+		}
+		u.setAltura(Float.parseFloat(request.getParameter("txtAltura")));
+		if (request.getParameter("txtAltura") == null){
+			RequestDispatcher rd =request.getRequestDispatcher("faleconosco.jsp");
+			
+			rd.forward(request, response);
+			
+			
+			
+		}
+		u.setIdAtividade(Integer.parseInt(request.getParameter("idAtividade")));
+		if (request.getParameter("idAtividade") == null){
+			RequestDispatcher rd =request.getRequestDispatcher("faleconosco.jsp");
+			
+			rd.forward(request, response);
+			
+			
+			
+		}
+		u.setFoto(request.getParameter("txtFoto"));
+		if (request.getParameter("txtFoto") == null){
+			RequestDispatcher rd =request.getRequestDispatcher("faleconosco.jsp");
+			
+			rd.forward(request, response);
+			
+			
+			
+		}
+		
+		
+		
+		
+		UsuarioDAO uDAO = new UsuarioDAO();
+		if (uDAO.gravarUsuario(u)){
+			RequestDispatcher rd =request.getRequestDispatcher("login.jsp");
+			rd.forward(request, response);
+			
+			
+		}else{
+			
+			RequestDispatcher rd =request.getRequestDispatcher("erro.jsp");
+			rd.forward(request, response);
+			
+		}
+		
+		
+	}
+
+}

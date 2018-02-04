@@ -1,0 +1,131 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+	
+<%@ page import="java.util.Date" %>	
+<%@ page import="java.text.SimpleDateFormat" %>
+
+<%
+
+	if (session.getAttribute("usuario") == null){
+		response.sendRedirect("login.jsp");
+	}
+
+%>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>F@tControl - ALIMENTOS</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+	<%
+	
+		String num = "1,79";
+		double x = Double.parseDouble(num.replaceAll(",", "."));
+		System.out.println(x * 2);
+		
+		Date d = null;
+		String dataF = null;
+		
+		SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat dataMySQL = new SimpleDateFormat("yyyy/MM/dd");
+		
+		d = dataFormatada.parse("30/05/1974");
+		dataF = dataMySQL.format(d);
+		
+		System.out.println(d);
+		System.out.println(dataF);
+	
+	%>
+
+	<div class="conteiner">
+
+		<!-- HEADER -->
+		<%@include file="header.jsp"%>
+		<!-- FIM HEADER -->
+
+		<!-- CONTEÚDO -->
+		<div class="conteudo">
+			<%@include file="perfil.jsp"%>
+			<div class="direita">
+				<div class="conteudoDireita">
+					<h4 class="tituloMenuDir">Meus Dados</h4>
+					
+					<form action="GravarAlimento" method="post">
+						<fieldset style="display: inline-block;">
+							<legend>Dados pessoais e para autenticação:</legend>
+								
+								
+								<table>
+									<tr>
+										<td><label for="txtNome">Nome:</label></td>
+										<td><input type="text" name="txtNome" style="width: 450px;"></td>
+									</tr>
+									
+									<tr>
+										<td><label for="txtEmail">E-mail:</label></td>
+										<td><input type="text" name="txtEmail" style="width: 450px;"></td>
+									</tr>
+									
+									<tr>
+										<td><label for="txtLogin">Login:</label></td>
+										<td><input  type="text" name="txtLogin" style="width: 210px;"> <label for="txtSenha">Senha:</label> 
+												<input  type="text" name="txtSenha" style="width: 200px;"></td>
+									</tr>
+								
+									<tr>
+										<td><label for="txtDtNasc">Dt. Nasc.:</label></td>
+										<td><input  type="text" name="txtDtNasc" style="width: 100px;"> 
+												<label for="txtPeso">Peso (Kg):</label> 
+												<input type="text" name="txtPeso" style="width: 50px;"> 
+												<label for="txtAltura">Altura (cm):</label> 
+												<input type="text" name="txtAltura" style="width: 50px;"> </td>
+									</tr>
+								
+								</table>
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								<br>
+								
+								
+								<input type="radio" name="rdSexo" value="masc">Masculinoa
+								<input type="radio" name="rdSexo" value="fem">Feminino<br>
+								
+								
+								
+								
+								
+								
+								<label for="txtFoto">Foto:</label>
+								<input type="text" name="txtFoto">
+								<input type="submit" value="Salvar Dados">
+		
+						</fieldset>
+					</form>
+					
+				</div>
+			</div>
+		</div>
+		<!-- FIM CONTEÚDO -->
+
+		<!-- RODAPÉ -->
+		<%@include file="footer.jsp"%>
+		<!-- FIM RODAPÉ -->
+
+	</div>
+
+</body>
+</html>

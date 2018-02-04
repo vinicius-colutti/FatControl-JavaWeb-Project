@@ -1,0 +1,72 @@
+package br.com.fatcontrol.controle;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.sun.org.apache.bcel.internal.generic.GETFIELD;
+
+import br.com.fatcontrol.DAO.UsuarioDAO;
+import br.com.fatcontrol.Util.Data;
+import br.com.fatcontrol.model.Usuario;
+
+
+@WebServlet("/AlterarUsuario")
+public class AlterarUsuario extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+   
+    public AlterarUsuario() {
+        super();
+        
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Usuario usuario = new Usuario();
+		
+		usuario.setNome(request.getParameter("txtNome"));
+		usuario.setEmail(request.getParameter("txtEmail"));
+		usuario.setLogin(request.getParameter("txtLogin"));
+		usuario.setDtNasc(Data.formataData(request.getParameter("txtDtNasc")));
+		usuario.setPeso(Integer.parseInt(request.getParameter("txtPeso")));
+		usuario.setAltura(Float.parseFloat(request.getParameter("txtAltura")));
+		usuario.setSexo((request.getParameter("rdSexo")));		
+		
+
+
+		
+		
+
+		UsuarioDAO uDAO = new UsuarioDAO();
+		if (uDAO.alterarUsuario(usuario)){
+			RequestDispatcher rd =request.getRequestDispatcher("meusdados.jsp");
+			rd.forward(request, response);
+			System.out.println("ESTOU AQUI");
+			
+			
+		}else{
+			
+			RequestDispatcher rd =request.getRequestDispatcher("erroalterar.jsp");
+			rd.forward(request, response);
+			
+		}
+		
+		
+		
+		
+	}
+
+}

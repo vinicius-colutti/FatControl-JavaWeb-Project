@@ -1,0 +1,286 @@
+body {
+	color: #333333;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans serif;
+}
+
+.container {
+	margin: 0 auto;
+	width: 940px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.conteudo {
+	margin: 0 auto;
+	margin-top: 5px;
+	width: 940px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	background-color:;
+}
+
+header {
+	position: relative;
+}
+
+.logo {
+	position: absolute;
+	top: 18px;
+	right: 0;
+	font-size: 52px;
+	width: 830px;
+	height: 26px;
+	padding-top: 5px;
+	color: #0000FF;
+}
+
+.subtitulo {
+	position: absolute;
+	top: 18px;
+	right: 0;
+	font-size: 14px;
+	width: 830px;
+	height: 26px;
+	padding-top: 50px;
+	color: #000;
+}
+
+.login {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: url(../images/login24.png) no-repeat right;
+	font-size: 14px;
+	padding-right: 35px;
+	padding-top: 0px;
+	text-align: right;
+	width: 200px;
+	height: 26px;
+	padding-top: 8px;
+}
+
+.registrar {
+	position: absolute;
+	top: 25px;
+	right: 8px;
+	background: url(../images/user.png) no-repeat right;
+	font-size: 14px;
+	padding-right: 27px;
+	padding-top: 0px;
+	text-align: right;
+	width: 200px;
+	height: 26px;
+	padding-top: 8px;
+}
+
+.menu-sup {
+	margin-top: 0px;
+	/*background-color: #0000CD;*/
+	background: linear-gradient(#1E90FF, #ADD8E6);
+	box-shadow: 2px 4px 5px grey;
+}
+
+.menu-sup ul {
+	font-size: 16px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	padding-right: 0px;
+	padding-left: 0px;
+	text-align: center;
+}
+
+.menu-sup ul li {
+	display: inline;
+	margin-left: 0px;
+	box-shadow: 0px 8px 5px grey;
+}
+
+.menu-sup a:hover {
+	color: yellow;
+	background-color: #6495ED;
+}
+
+.menu-sup a:VISITED {
+	color: white;
+}
+
+.menu-sup a:LINK {
+	color: white;
+}
+
+.menu-sup a {
+	background-color: #00BFFF;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.rodape {
+	clear: both; margin-top : 5px;
+	/*background-color: #0000CD;*/
+	background: linear-gradient(#1E90FF, #ADD8E6);*/
+	/*box-shadow: 0px 2px 5px grey;*/
+	padding-bottom: 20px;
+	padding-top: 10px;
+	padding-right: 0px;
+	padding-left: 0px;
+	text-align: center;
+	color: black;
+	font-family: "Arial";
+	font-size: 14px;
+	margin-top: 5px;
+	border-top: 1px dashed gray;
+	border-bottom: 1px dashed gray;
+}
+
+.esquerda {
+	float: left;
+	margin-right: 0px;
+	width: 310px;
+	height: 500px;
+	margin-bottom: 5px;
+}
+
+.direita {
+	float: right;
+	margin-left: 5px;
+	width: 620px;
+	height: 500px;
+}
+
+.tituloMenuEsq {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 60px;
+	color: gray;
+	font-size: 24px;
+	border-bottom: 1px solid gray;
+	background: url(../images/perfil32.png) no-repeat left;
+}
+
+.tituloConteudo {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 65px;
+	color: gray;
+	font-size: 24px;
+	border-bottom: 1px solid gray;
+	background: url(../images/food.png) no-repeat left;
+}
+
+.imgperfil {
+	margin-top: 5px;
+	text-align: center;
+	border-radius: 70px;
+}
+
+.conteudoEsquerdo {
+	border: 1px dashed gray;
+	border-radius: 20px;
+	margin-top: 5px;
+	background-color: #E0FFFF;
+}
+
+.destaque {
+	font-size: 20px;
+	font-weight: bold;
+	color: gray;
+	margin-top: 2px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.tabelaEsq {
+	font-size: 16px;
+	font-weight: bold;
+	color: gray;
+	margin-top: 2px;
+	padding: 20px;
+}
+
+table {
+	border-collapse: collapse;
+	width: 95%;
+	margin-left: 5px;
+	margin-right: 10px;
+	font-size: 14px;
+	margin-bottom: 30px;
+}
+
+tr, td {
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+.formularioLogin {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-top: 70px;
+    width: 300px;
+		margin-left: 250px;
+		border: 1px dashed gray;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.autenticacao {
+	float: none;
+	margin-left: 5px;
+	width: 940px;
+	height: 500px;
+}
+
+.tituloLogin {
+	padding-top: 10px;
+	padding-bottom: 0px;
+	padding-left: 65px;
+	color: gray;
+	font-size: 24px;
+	/*border-bottom: 1px solid gray;*/
+	background: url(../images/autentica64.png) no-repeat left;
+	margin-bottom: 20px;
+	width: 290px;
+	height: 70px;
+}

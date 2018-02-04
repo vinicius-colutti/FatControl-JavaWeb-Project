@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%
+
+	session.setAttribute("usuario", "celsofurtado");
+
+%>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Afin@Soft</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+	<div class="conteiner">
+
+		<!-- HEADER -->
+		<%@include file="header.jsp"%>
+		<!-- FIM HEADER -->
+
+		<!-- CONTEÚDO -->
+		<div class="conteudo">
+			<%@include file="perfil.jsp"%>
+			<div class="direita">
+				<h4 class="tituloConteudo">Entradas Recentes de Alimentos e
+					Exercícios</h4>
+			</div>
+		</div>
+		<!-- FIM CONTEÚDO -->
+
+		<!-- RODAPÉ -->
+		<%@include file="footer.jsp"%>
+		<!-- FIM RODAPÉ -->
+
+	</div>
+
+</body>
+</html>

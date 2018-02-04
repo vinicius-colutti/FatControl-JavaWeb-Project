@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Insert title here</title>
+	</head>
+		<body>
+			<!-- HEADER -->
+			<%@include file="header.jsp"%>
+		    <!-- FIM HEADER -->
+			<!-- CONTEÚDO -->
+			<div class="conteudo">
+	
+				
+									
+					
+						
+						<form action="Login" method="post">
+							<label for="usuario">Pessoa Altera com sucesso !!! Pra finalizar o procedimento, é necessário logar novamente</label>
+							<input class="textBox" type="text" id="usuario" name="txtUsuario">
+							<label for="usuario">Senha</label>
+							<input class="textBox" type="password" id="senha" name="txtSenha"> 
+							<input class="textBox" type="submit" value="Clique aqui para logar novamente">
+						</form>
+					
+			</div>
+		<!-- FIM CONTEÚDO -->
+		
+		</body>
+</html>

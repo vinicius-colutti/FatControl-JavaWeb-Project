@@ -1,0 +1,72 @@
+package br.com.fatcontrol.controle;
+
+import java.io.IOException;
+import java.sql.Date;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import br.com.fatcontrol.DAO.UsuarioDAO;
+import br.com.fatcontrol.Util.Data;
+import br.com.fatcontrol.model.Usuario;
+
+
+@WebServlet("/GravarUsuario")
+public class GravarUsuario extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    
+    public GravarUsuario() {
+        super();
+        
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Usuario u = new Usuario();
+		
+		u.setLogin(request.getParameter("txtLogin"));
+		u.setSenha(request.getParameter("txtSenha"));
+		u.setNome(request.getParameter("txtNome"));
+		u.setEmail(request.getParameter("txtEmail"));
+		u.setDtNasc(Data.getData(request.getParameter("txtDtNasc")));
+		u.setSexo(request.getParameter("rdSexo"));
+		u.setPeso(Float.parseFloat(request.getParameter("txtPeso")));
+		u.setPesoAlvo(Float.parseFloat(request.getParameter("txtPesoAlvo")));
+		u.setAltura(Float.parseFloat(request.getParameter("txtAltura")));
+		u.setIdAtividade(Integer.parseInt(request.getParameter("idAtividade")));
+		u.setFoto(request.getParameter("txtFoto"));
+		
+		
+		
+		
+		UsuarioDAO uDAO = new UsuarioDAO();
+		if (uDAO.gravarUsuario(u)){
+			RequestDispatcher rd =request.getRequestDispatcher("login.jsp");
+			rd.forward(request, response);
+			
+			
+		}else{
+			
+			RequestDispatcher rd =request.getRequestDispatcher("erro.jsp");
+			rd.forward(request, response);
+			
+		}
+		
+		if (u.setLogin("txtLogin") == null){
+			
+			System.out.println("");
+			
+		}
+	}
+
+}

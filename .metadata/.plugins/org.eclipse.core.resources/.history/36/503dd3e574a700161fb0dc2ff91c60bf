@@ -1,0 +1,57 @@
+<%@page import="br.com.fatcontrol.DAO.UsuarioDAO"%>
+<%@page import="br.com.fatcontrol.model.Usuario"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.regex.*" %>
+		
+		<%
+	
+
+		UsuarioDAO u = new UsuarioDAO();
+		u = (UsuarioDAO)request.getAttribute("user");
+		
+		if (u != null){
+			request.getSession(true);			
+			session.setAttribute("usuario", u);
+			response.sendRedirect("meusdados.jsp");
+			
+		}else{
+			
+			response.sendRedirect("login.jsp");			
+			
+		}
+			
+	
+	%>
+		
+		
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Afin@Soft</title>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/estilo.css">
+	</head>
+	<body>
+	
+	
+		<div class="conteiner">
+	
+			<!-- HEADER -->
+			<%@include file="header.jsp"%>
+			<!-- FIM HEADER -->
+	
+			<!-- CONTEÚDO -->
+			<div class="conteudo">
+				<p>AUTENTICANDO USUÁRIO ...</p>
+			</div>
+			<!-- FIM CONTEÚDO -->
+	
+			<!-- RODAPÉ -->
+			<%@include file="footer.jsp"%>
+			<!-- FIM RODAPÉ -->
+	
+		</div>
+	
+	</body>
+</html>

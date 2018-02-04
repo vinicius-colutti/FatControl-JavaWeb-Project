@@ -1,0 +1,110 @@
+<%@page import="br.com.fatcontrol.DAO.AtividadeDAO"%>
+<%@page import="br.com.fatcontrol.model.Atividade"%>
+<%@page import="java.util.List"%>
+<%@page import="java.sql.Connection"%>	
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+<!DOCTYPE html>
+<html>
+	<head>
+	<%	
+		AtividadeDAO atividade = new AtividadeDAO();
+		List<Atividade> listaAtividade  = atividade.listarAtividade();
+	
+	%>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Cadastrar-se</title>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/estilo.css">
+	</head>
+		<!-- HEADER -->
+		<%@include file="header.jsp"%>
+		<!-- FIM HEADER -->
+		
+		<body>
+			<!-- CONTEÚDO -->
+		<div class="conteudo" style=" margin-right:400px; margin-top:-5px;">			
+			<div class="direita">
+				<div class="conteudoDireita">
+					<h4 class="tituloMenuDir">Meus Dados</h4>
+					
+					<form action="GravarUsuario" method="post" enctype="">
+						<fieldset style="display: inline-block;">
+							<legend>Dados pessoais e para autenticação:</legend>
+								
+								
+								<table style="margin-left: 20px">
+									<tr>
+										<td><label for="txtNome">Nome:</label></td>
+										<td><input type="text" name="txtNome" style="width: 450px;"></td>
+									</tr>
+									
+									<tr>
+										<td><label for="txtEmail">E-mail:</label></td>
+										<td><input type="text" name="txtEmail" style="width: 450px;"></td>
+									</tr>
+									
+									<tr>
+										<td><label for="txtLogin">Login:</label></td>
+										<td><input  type="text" name="txtLogin" style="width: 210px;"> <label for="txtSenha">Senha:</label> 
+												<input  type="text" name="txtSenha" style="width: 190px;"></td>
+									</tr>
+								
+									<tr>
+										<td><label for="txtDtNasc">Dt. Nasc.:</label></td>
+										<td><input  type="text" name="txtDtNasc" style="width: 100px;"> 
+												<label for="txtPeso">Peso (Kg):</label> 
+												<input type="text" name="txtPeso" style="width: 50px;"> 
+												<label for="txtAltura">Altura (cm):</label> 
+												<input type="text" name="txtAltura" style="width: 50px;"> </td>
+												<label style="margin-left:28px;"for="txtPesoAlvo">Peso Alvo:</label> 
+												<input type="text" name="txtPesoAlvo" style="width:100px; "> </td>
+												
+
+
+
+
+
+
+									</tr>
+									
+									<tr>
+										<td><label for="rdSexo">Sexo:</label></td>
+										<td><input type="radio" name="rdSexo" value="M">Masculino
+												<input type="radio" name="rdSexo" value="F">Feminino<br></td>
+												
+									</tr>
+									
+									<tr>
+										<td><label for="cbAtividades">Atividades:</label></td>
+										<td><select name="idAtividade" style="width: 170px; background-color: #F0FFFF;">
+													
+													<% 
+														for (int i = 0; i < listaAtividade.size() ; i++){
+															out.print("<option value='" + listaAtividade.get(i).getIdAtividade() + "'>" + listaAtividade.get(i).getDescricao() + "</option>");
+														}
+													%>
+												</select> 
+												<label for="txtFoto">Foto:</label> <input type="file" name="txtFoto" style="width: 240px;"></td>
+									</tr>
+									
+									<tr>
+										<td colspan="2" align="right"><input type="submit" value="Gravar dados"  style="margin-top: 8px; width: 530px;"></td>
+									</tr>
+										
+								</table>
+	
+						</fieldset>
+					</form>
+					
+				</div>
+			</div>
+		</div>
+		<!-- FIM CONTEÚDO -->
+		<!-- RODAPÉ -->
+		<%@include file="footer.jsp"%>
+		<!-- FIM RODAPÉ -->
+		
+		</body>
+</html>

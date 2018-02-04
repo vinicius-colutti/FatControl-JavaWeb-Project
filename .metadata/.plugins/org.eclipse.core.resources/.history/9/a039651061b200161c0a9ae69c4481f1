@@ -1,0 +1,256 @@
+package br.com.fatcontrol.model;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+public class Usuario {
+	
+	private int idUsuario;
+	private String login;
+	private String senha;
+	private String nome;
+	private String email;
+	private Date dtNasc;
+	private int idade;
+	
+	public int getIdade() {
+		Date d = new Date();
+		
+		Calendar cal = new GregorianCalendar();
+		
+		d = cal.getTime();
+		
+		
+		long i;
+		i = ((d.getTime() - this.dtNasc.getTime())/ 86400000)/365;
+		
+		int idadeAnos = (int)i;
+		this.idade = idadeAnos;
+
+		return this.idade;
+	}
+	
+	private float peso;
+	private float altura;
+	private String sexo;
+	private String imc;
+	private String idr;
+	
+	public String getImc() {
+float i = this.getPeso() / (this.getAltura() * this.getAltura()) * 10000;
+		
+		
+		
+		if (i < 17){
+			imc = (int) i + "Muito abaixo do peso";
+			
+			
+			
+		}if ( i > 17 && i < 18.40){
+			
+			imc = (int) i  + "Abaixo do peso";
+			
+			
+		}if ( i > 18.50 && i < 24.9 ){
+			
+			imc = (int) i  + "Peso Normal";
+			
+		}if ( i > 25.0 && i < 29.9){
+			imc = (int) i  + "Acima do peso";
+			
+		}if (i > 30.0 && i < 34.9){
+			
+			imc = (int) i  + "Obesidade grau I";
+			
+			
+		}if (i > 35.0 && i < 39.9){
+			
+			imc = (int) i  + "Obesidade grau II";
+		}if (i > 40.0){
+			
+			imc = (int) i  + "Obesidade grau III";
+			
+			
+		}
+		
+		return imc;
+	}
+	public void setImc(String imc) {
+			
+	}
+	public String getIdr() {
+		if (getSexo().equals("F")){
+			
+			if(this.getIdAtividade() == 1){
+				 double calc = 655 + (9.6 * getPeso());
+				 double calc2 =  (1.8 * this.getAltura() - 4.7 *  this.getIdade()) * 1.2;
+				 double idr = calc + calc2;
+
+			}if(this.getIdAtividade() == 2){
+				
+				 double calc = 655 + (9.6 * getPeso());
+				 double calc2 =  (1.8 * this.getAltura() - 4.7 *  this.getIdade()) * 1.375;
+				 double idr = calc + calc2;
+				
+				
+			}if(this.getIdAtividade() == 3){
+				
+				 double calc = 655 + (9.6 * getPeso());
+				 double calc2 =  (1.8 * this.getAltura() - 4.7 *  this.getIdade()) * 1.55;
+				 double idr = calc + calc2;
+				
+			}if(this.getIdAtividade() == 4){
+				
+				double calc = 655 + (9.6 * getPeso());
+				 double calc2 =  (1.8 * this.getAltura() - 4.7 *  this.getIdade()) * 1.725;
+				 double idr = calc + calc2;
+				
+				
+				
+			}if(this.getIdAtividade() == 5){
+				
+				double calc = 655 + (9.6 * getPeso());
+				 double calc2 =  (1.8 * this.getAltura() - 4.7 *  this.getIdade()) * 1.9;
+				 double idr = calc + calc2;
+				
+				
+				
+			}
+
+
+			
+			
+		}
+		if (getSexo().equals("M")){
+			if(this.getIdAtividade() == 1){
+				 double calc = 655 + (13.7 * getPeso());
+				 double calc2 =  (5 * this.getAltura() - 6.8 *  this.getIdade()) * 1.2;
+				 double idr = calc + calc2;
+
+			}if(this.getIdAtividade() == 2){
+				
+				 double calc = 655 + (9.6 * getPeso());
+				 double calc2 =  (5 * this.getAltura() - 6.8 *  this.getIdade()) * 1.375;
+				 double idr = calc + calc2;
+				
+				
+			}if(this.getIdAtividade() == 3){
+				
+				 double calc = 655 + (9.6 * getPeso());
+				 double calc2 =  (5 * this.getAltura() - 6.8 *  this.getIdade()) * 1.55;
+				 double idr = calc + calc2;
+				
+			}if(this.getIdAtividade() == 4){
+				
+				double calc = 655 + (9.6 * getPeso());
+				 double calc2 =  (5 * this.getAltura() - 6.8 *  this.getIdade()) * 1.725;
+				 double idr = calc + calc2;
+				
+				
+				
+			}if(this.getIdAtividade() == 5){
+				
+				double calc = 655 + (9.6 * getPeso());
+				 double calc2 =  (5 * this.getAltura() - 6.8 *  this.getIdade()) * 1.9;
+				 double idr = calc + calc2;
+				
+				
+				
+			}
+			
+			
+			
+			
+			
+		}
+		
+		
+		return this.idr;
+	}
+	public void setIdr(String idr) {
+		this.idr = idr;
+	}
+	private int idAtividade;
+	private float pesoAlvo;
+	public float getPesoAlvo() {
+		return pesoAlvo;
+	}
+	public void setPesoAlvo(float pesoAlvo) {
+		this.pesoAlvo = pesoAlvo;
+	}
+	private String foto;
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Date getDtNasc() {
+		
+	
+		return dtNasc;
+	}
+	public void setDtNasc(Date dtNasc) {
+		this.dtNasc = dtNasc;
+	}
+	public float getPeso() {
+		return peso;
+	}
+	public void setPeso(float peso) {
+		this.peso = peso;
+	}
+	public float getAltura() {
+		return altura;
+	}
+	public void setAltura(float altura) {
+		this.altura = altura;
+	}
+	public String getSexo() {
+		return sexo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+	public int getIdAtividade() {
+		return idAtividade;
+	}
+	public void setIdAtividade(int idAtividade) {
+		this.idAtividade = idAtividade;
+	}
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
+	
+	
+	
+
+}

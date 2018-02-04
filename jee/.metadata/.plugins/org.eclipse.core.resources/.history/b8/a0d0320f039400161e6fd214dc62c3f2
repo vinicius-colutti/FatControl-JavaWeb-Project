@@ -1,0 +1,61 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<!-- CÓDIGO JAVA JSP -->
+
+<%
+
+	String nome = "Celso M. Furtado";
+	String dtNasc = "30/05/1974";
+
+%>
+
+<!-- FIM CÓDIGO JAVA JSP -->
+
+<div class="esquerda">
+	<h4 class="tituloMenuEsq">Seu perfil</h4>
+	<div class="conteudoEsquerdo">
+		<p class="imgperfil">
+			<img class="imgperfil" src="images/celso.jpg" width="130"
+				height="130" al>
+		</p>
+		<p class="destaque"><%= nome %></p>
+		<p>
+		<table>
+			<tr>
+				<td>Usuário:</td>
+				<td><%= session.getAttribute("usuario") %></td>
+			</tr>
+			<tr>
+				<td>Nascimento:</td>
+				<td><%= dtNasc %></td>
+			</tr>
+			<tr>
+				<td>Idade:</td>
+				<td>42 anos</td>
+			</tr>
+			<tr>
+				<td>Peso atual:</td>
+				<td>83,6 Kg</td>
+			</tr>
+			<tr>
+				<td>Peso alvo:</td>
+				<td>76,0 Kg</td>
+			</tr>
+			<tr>
+				<td>Falta perder:</td>
+				<td>07,6 Kg</td>
+			</tr>
+			<tr>
+				<td>IMC:</td>
+				<td>26</td>
+			</tr>
+			<tr>
+				<td>IDR:</td>
+				<td>1500</td>
+			</tr>
+		</table>
+		</p>
+		<p>&nbsp</p>
+	</div>
+</div>

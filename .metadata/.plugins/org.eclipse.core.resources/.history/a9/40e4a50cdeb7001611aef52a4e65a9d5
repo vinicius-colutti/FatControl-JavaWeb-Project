@@ -1,0 +1,41 @@
+package br.com.fatcontrol.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import br.com.fatcontrol.DBUtils.Conexao;
+import br.com.fatcontrol.Util.Data;
+import br.com.fatcontrol.model.Usuario;
+
+public class AlimentoDAO {
+	public boolean gravarAlimento(){
+		
+			boolean gravou = true;
+			Connection con;
+
+			try {
+				con = Conexao.abrirConexao();
+				String sql = "INSERT INTO tbl_usuario (login, senha, nome, email, dtNasc, peso, pesoAlvo, altura, sexo, idAtividade, foto )";
+				sql += "values (?, ?, ?, ?,?, ?, ?, ?, ?,?,?)";
+				PreparedStatement st = con.prepareStatement(sql);
+				
+
+				st.execute();
+
+				Conexao.fecharConexao(con);
+
+			} catch (Exception e) {
+				gravou = false;
+				System.out.println(e.getMessage());
+
+			}
+
+			return gravou;
+		
+		
+		
+	}
+	
+	
+
+}

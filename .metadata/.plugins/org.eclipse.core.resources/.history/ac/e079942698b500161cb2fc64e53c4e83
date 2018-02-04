@@ -1,0 +1,133 @@
+package br.com.fatcontrol.DAO;
+
+import java.sql.Connection;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.swing.JOptionPane;
+
+import br.com.fatcontrol.DBUtils.Conexao;
+import br.com.fatcontrol.model.Usuario;
+
+public class UsuarioDAO {
+	
+	public Usuario autenticar(String login, String senha) {
+		Usuario u = null;
+
+		Connection con = null;
+		try {
+			con = Conexao.abrirConexao();
+			String sql = "SELECT * FROM tbl_usuario where login = ? and senha = ?";
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, login);
+			st.setString(2, senha);
+
+			ResultSet rs = st.executeQuery();
+
+			if (rs.next()) {
+				u = new Usuario();
+				u.setNome(rs.getString("nome"));
+				u.setLogin(rs.getString("login"));
+				u.setSenha(rs.getString("senha"));
+				u.setAltura(rs.getFloat("altura"));
+				u.setEmail(rs.getString("email"));
+				u.setDtNasc(rs.getDate("dtNasc"));
+				u.setPeso(rs.getFloat("peso"));
+				u.setIdAtividade(rs.getInt("idAtividade"));
+				u.setPesoAlvo(rs.getFloat("pesoAlvo"));
+				u.setSexo(rs.getString("sexo"));
+			}
+			System.out.println(u.getIdAtividade());
+			Conexao.fecharConexao(con);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+
+		}
+
+		return u;
+
+	}
+
+	public boolean gravarUsuario(Usuario u) {
+
+		boolean gravou = true;
+		Connection con;
+
+		try {
+			con = Conexao.abrirConexao();
+			String sql = "INSERT INTO tbl_usuario (login, senha, nome, email, dtNasc, peso, pesoAlvo, altura, sexo, idAtividade, foto )";
+			sql += "values (?, ?, ?, ?,?, ?, ?, ?, ?,?,?)";
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, u.getLogin());
+			st.setString(2, u.getSenha());
+			st.setString(3, u.getNome());
+			st.setString(4, u.getEmail());
+			st.setDate(5, new java.sql.Date(u.getDtNasc().getTime()));
+			st.setFloat(6, u.getPeso());
+			st.setFloat(7, u.getPesoAlvo());
+			st.setFloat(8, u.getAltura());
+			st.setString(9, u.getSexo());
+			st.setInt(10, u.getIdAtividade());
+			st.setString(11, "foto");
+
+			st.execute();
+
+			Conexao.fecharConexao(con);
+
+		} catch (Exception e) {
+			gravou = false;
+			System.out.println(e.getMessage());
+
+		}
+
+		return gravou;
+	}
+	
+	public boolean alterarUsuario ( Usuario usuario){
+		Connection con = null;
+		boolean alterou = true;
+		
+		
+		
+		
+		try {
+			
+			con = Conexao.abrirConexao();
+				
+			 String sql = "update tbl_usuario set nome=?, email=?, dtNasc=?, peso=?, altura=?, sexo=? where login=? ";
+			 
+			 PreparedStatement st = con.prepareStatement(sql);
+			 
+			 st.setString(1, usuario.getNome());
+			 st.setString(2, usuario.getEmail());
+			 st.setDate(3, (new java.sql.Date(usuario.getDtNasc().getTime())));
+			 st.setFloat(4, usuario.getPeso());
+			 st.setFloat(5, usuario.getAltura());
+			 st.setString(6, usuario.getSexo());
+			 st.setString(7, usuario.getLogin());
+			 
+			
+			 
+			 st.executeUpdate();
+			 
+			 Conexao.fecharConexao(con);
+			System.out.println("ESTOU NO USUARIODAO");
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e);
+		}
+		return alterou;
+		
+		
+		
+		
+
+}
+
+}

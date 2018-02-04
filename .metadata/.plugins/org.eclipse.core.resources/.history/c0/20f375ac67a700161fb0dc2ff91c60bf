@@ -1,0 +1,87 @@
+package br.com.fatcontrol.model;
+
+public class Usuario {
+	
+	private int idUsuario;
+	private String login;
+	private String senha;
+	private String nome;
+	private String email;
+	private String dtNasc;
+	private float peso;
+	private float altura;
+	private String sexo;
+	private int idAtividade;
+	private String foto;
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getDtNasc() {
+		return dtNasc;
+	}
+	public void setDtNasc(String dtNasc) {
+		this.dtNasc = dtNasc;
+	}
+	public float getPeso() {
+		return peso;
+	}
+	public void setPeso(float peso) {
+		this.peso = peso;
+	}
+	public float getAltura() {
+		return altura;
+	}
+	public void setAltura(float altura) {
+		this.altura = altura;
+	}
+	public String getSexo() {
+		return sexo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+	public int getIdAtividade() {
+		return idAtividade;
+	}
+	public void setIdAtividade(int idAtividade) {
+		this.idAtividade = idAtividade;
+	}
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
+	
+	
+	
+
+}

@@ -1,0 +1,43 @@
+package br.com.fatcontrol.controle;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.sun.javafx.binding.IntegerConstant;
+
+import br.com.fatcontrol.Util.Data;
+import br.com.fatcontrol.model.Alimento;
+
+
+@WebServlet("/GravarAlimento")
+public class GravarAlimento extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    
+    public GravarAlimento() {
+        super();
+    }    
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Alimento ali = new Alimento();
+	
+		ali.setIdAlimento(Integer.parseInt(request.getParameter("txtIdALimento")));
+		ali.setDescricao(request.getParameter("txtDescricao"));
+		ali.set
+		
+		
+		
+		doGet(request, response);
+	}
+
+}

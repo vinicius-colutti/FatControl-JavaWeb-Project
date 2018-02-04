@@ -1,0 +1,71 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%
+	Usuario u = new Usuario();
+	if (session.getAttribute("usuario") == null){
+		response.sendRedirect("login.jsp");
+	}else{
+		
+		u = (Usuario)session.getAttribute("usuario");
+		
+	}
+
+	
+
+%>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>F@tControl - ALIMENTOS</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+	<div class="conteiner">
+
+		<!-- HEADER -->
+		<%@include file="header.jsp"%>
+		<!-- FIM HEADER -->
+
+		<!-- CONTEÚDO -->
+		<div class="conteudo">
+			<%@include file="perfil.jsp"%>
+			<div class="direita">
+				<div class="conteudoDireita">
+					<h4 class="tituloMenuDir">Cadastro de Alimentos</h4>
+					
+					<form action="GravarAlimento" method="post">
+						<fieldset>
+							<legend>Cadastrar Alimentos:</legend>
+							<p><label for="txtIdUsuario">ID:</label></p>
+							<p><input value="<%= u.getIdUsuario()  %>" class="inputForm" type="text" name="txtIdUsuario" style="width: 50px;"></p>
+							<p><label for="txtDesc">Descrição:</label></p>
+							<p><input type="text" name="txtDesc" style="width: 400px;"></p>
+							<p><label for="txtPorcao">Porção:</label></p>
+							<p><input type="text" name="txtPorcao"></p>
+							<p><label for="txtCal">Calorias:</label></p>
+							<p><input type="text" name="txtCal"></p>
+							
+							
+							<input type="submit" value="Gravar Alimento"  style="margin-top: 65px; width: 200px;">
+						</fieldset>
+					</form>
+					
+				</div>
+			</div>
+		</div>
+		<!-- FIM CONTEÚDO -->
+
+		<!-- RODAPÉ -->
+		<%@include file="footer.jsp"%>
+		<!-- FIM RODAPÉ -->
+
+	</div>
+
+</body>
+</html>

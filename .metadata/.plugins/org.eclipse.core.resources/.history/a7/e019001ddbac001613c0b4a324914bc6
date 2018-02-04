@@ -1,0 +1,61 @@
+<%@page import="br.com.fatcontrol.model.Usuario"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<!-- CÓDIGO JAVA JSP -->
+
+<%
+
+	Usuario u = new Usuario();
+	u = (Usuario)session.getAttribute("usuario");
+
+
+	
+
+%>
+
+<!-- FIM CÓDIGO JAVA JSP -->
+
+<div class="esquerda">
+	
+	<div class="conteudoEsquerdo">
+		<h4 class="tituloMenuEsq">Seu perfil</h4>
+		<p class="imgperfil">
+			<img class="imgperfil" src="images/carl.jpg" width="130"
+				height="130">
+		</p>
+		<p class="destaque"><%= u.getNome() %></p>
+		<p>
+		<table class="tabelaPerfil">
+			<tr>
+				<td>Usuário:</td>
+				<td><%= session.getAttribute("usuario") %></td>
+			</tr>
+			<tr>
+				<td>Nascimento:</td>
+				<td><%= u.getDtNasc() %></td>
+			</tr>
+			<tr>
+				<td>Idade:</td>
+				<td>Calculo a ser resolvido</td>
+			</tr>
+			<tr>
+				<td>Peso atual:</td>
+				<td><%= u.getPeso()%></td>
+			</tr>
+			<tr>
+				<td>Peso alvo:</td>
+				<td><%= u.getPesoAlvo() %></td>
+			</tr>
+			<tr>
+				<td>IMC:</td>
+				<td>26</td>
+			</tr>
+			<tr>
+				<td>IDR:</td>
+				<td>1500</td>
+			</tr>
+		</table>
+		<p></p>
+	</div>
+</div>

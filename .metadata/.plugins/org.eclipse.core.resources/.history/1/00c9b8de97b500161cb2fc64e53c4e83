@@ -1,0 +1,32 @@
+package br.com.fatcontrol.Util;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Data {
+	
+	
+	
+	public static String getDataPortugues (Date dt){
+		
+		
+		String dataPt = null;
+		
+		SimpleDateFormat dataPortugues = new SimpleDateFormat("dd-MM-yyyy");
+		
+		
+		dataPt = dataPortugues.format(dt);
+		
+		return dataPt;
+		
+		
+		
+	}
+
+	
+	
+}
+
+

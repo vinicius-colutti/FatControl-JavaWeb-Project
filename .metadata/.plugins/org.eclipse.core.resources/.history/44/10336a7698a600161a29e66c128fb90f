@@ -1,0 +1,5 @@
+package br.com.fatcontrol.model;
+
+public class Usuario {
+
+}

@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Afin@Soft - LOGIN</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+	<div class="conteiner">
+
+		<!-- HEADER -->
+		<%@include file="header.jsp"%>
+		<!-- FIM HEADER -->
+
+		<!-- CONTEÚDO -->
+		<div class="conteudo">
+
+			<div class="autenticacao">
+				<h4 class="tituloConteudo">Autenticação</h4>
+				
+				<div class="formularioLogin">
+					<form action="action_page.php">
+						<label for="fname">Nome do usuário:</label> <input type="text"
+							id="usuario" name="txtUsuario"> <label for="usuario">Senha</label>
+							<input type="password" id="senha" name="txtSenha"> 
+						</select> <input type="submit" value="Submit">
+					</form>
+				</div>
+				
+			</div>
+		</div>
+		<!-- FIM CONTEÚDO -->
+
+		<!-- RODAPÉ -->
+		<%@include file="footer.jsp"%>
+		<!-- FIM RODAPÉ -->
+
+	</div>
+
+</body>
+</html>
+dy>
+</html>
